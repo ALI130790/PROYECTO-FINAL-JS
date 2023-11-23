@@ -1,216 +1,11 @@
-const productos = [
+let productos = [];
 
-    {
-        id: "Vestido 01",
-        titulo: "Vestidos Camiseros",
-        imagen: "./img/urbano/vestidos camiseros.jpg",
-        categoria: {
-            nombre: "Urbano",
-            id: "urbano"
-        },
-        precio: 11000
-    },
-    {
-        id: "Vestido 02",
-        titulo: "Vestido Casual",
-        imagen: "./img/urbano/vestido petroleo.jpg",
-        categoria: {
-            nombre: "Urbano",
-            id: "urbano"
-        },
-        precio: 11000
-    },
-    {
-        id: "Vestido 03",
-        titulo: "Vestido Anita",
-        imagen: "./img/urbano/vestido ANITA.jpg",
-        categoria: {
-            nombre: "Urbano",
-            id: "urbano"
-        },
-        precio: 11000
-    },
-    {
-        id: "Vestido 04",
-        titulo: "Vestido Flora",
-        imagen: "./img/urbano/vestido flores.jpg",
-        categoria: {
-            nombre: "Urbano",
-            id: "urbano"
-        },
-        precio: 11000
-    },
-    {
-        id: "Remera-01",
-        titulo: "Bodie Catalina",
-        imagen: "./img/urbano/bodie.jpg",
-        categoria: {
-            nombre: "Urbano",
-            id: "urbano"
-        },
-        precio: 11000
-    },
-    {
-        id: "Remera-02",
-        titulo: "Remera Verde Militar",
-        imagen: "./img/urbano/remera verde.jpg",
-        categoria: {
-            nombre: "Urbano",
-            id: "urbano"
-        },
-        precio: 6000
-    },
-    {
-        id: "Remera-03",
-        titulo: "Remera Pastel",
-        imagen: "./img/urbano/remera rosa pastel.jpg",
-        categoria: {
-            nombre: "Urbano",
-            id: "urbano"
-        },
-        precio: 5000
-    },
-    {
-        id: "Remera-04",
-        titulo: "Remera con aplique",
-        imagen: "./img/urbano/reemera con aplique negra.jpg",
-        categoria: {
-            nombre: "Urbano",
-            id: "urbano"
-        },
-        precio: 5500
-    },
-    {
-        id: "Remera-05",
-        titulo: "Remera Kiss",
-        imagen: "./img/urbano/remera besos.jpg",
-        categoria: {
-            nombre: "Urbano",
-            id: "urbano"
-        },
-        precio: 6000
-    },
-    {
-        id: "Remera-06",
-        titulo: "Top Rosa",
-        imagen: "./img/urbano/top rosa.jpeg",
-        categoria: {
-            nombre: "Urbano",
-            id: "urbano"
-        },
-        precio: 6000
-    },
-    {
-        id: "Remera-07",
-        titulo: "Camiseta c/botones",
-        imagen:"./img/urbano/camiseta botones.jpg",
-        categoria: {
-            nombre: "Urbano",
-            id: "urbano"
-        },
-        precio: 8000
-    },
-    {
-        id: "Pantalon 01",
-        titulo: "Palazo de Colores",
-        imagen: "./img/urbano/palazo colores.jpg",
-        categoria: {
-            nombre: "Urbano",
-            id: "urbano"
-        },
-        precio: 11000
-    },
-    {
-        id: "Pantalon 02",
-        titulo: "Conjunto: Polerita rosa y Palazo gris",
-        imagen:"./img/urbano/palazo girs.jpeg",
-        categoria: {
-            nombre: "Deportivo",
-            id: "deportivo"
-        },
-        precio: 7000
-    },
-    {
-        id: "Conjunto 01",
-        titulo: "Conjunto: Sudadera y Calza Azul",
-        imagen:"./img/deportivo/sudadera y calza azul.jpg",
-        categoria: {
-            nombre: "Deportivo",
-            id: "deportivo"
-        },
-        precio: 11000
-    },
-    {
-        id: "Conjunto 02",
-        titulo: "Conjunto: Buzo y Calza Estampada",
-        imagen:"./img/deportivo/Calza Fucsia Geo.jpg",
-        categoria: {
-            nombre: "Deportivo",
-            id: "deportivo"
-        },
-        precio: 11000
-    },
-    {
-        id: "Conjunto 03",
-        titulo: "Conjunto: Remera Turquesa y Calza",
-        imagen:"./img/deportivo/Calza Aplique verde.jpg",
-        categoria: {
-            nombre: "Deportivo",
-            id: "deportivo"
-        },
-        precio: 11000
-    },
-    {
-        id: "Conjunto 04",
-        titulo: "Conjunto: Top Fucsia y Calza con Ondas",
-        imagen:"./img/deportivo/Calza con ondas.jpg",
-        categoria: {
-            nombre: "Deportivo",
-            id: "deportivo"
-        },
-        precio: 11000
-    },
-    {
-        id: "Conjunto 05",
-        titulo: "Conjunto: Remera Basica y Calza Jaspeda",
-        imagen:"./img/deportivo/Calza Azul jaspeada.jpg",
-        categoria: {
-            nombre: "Deportivo",
-            id: "deportivo"
-        },
-        precio: 11000
-    },
-    {
-        id: "CConjunto 06",
-        titulo: "Conjunto: Remera Basica y Calza Jaspeda",
-        imagen:"./img/deportivo/Calza jaspeada gris.jpg",
-        categoria: {
-            nombre: "Deportivo",
-            id: "deportivo"
-        },
-        precio: 11000
-    },
-    {
-        id: "Conjunto 07",
-        titulo: "Conjunto: Corpiño y Calza",
-        imagen:"./img/deportivo/Conjunto fucsia Deportivo.jpg",
-        categoria: {
-            nombre: "Deportivo",
-            id: "deportivo"
-        },
-        precio: 11000
-    },
-    {
-        id: "Conjunto 08",
-        titulo: "Conjunto: Corpiño y Calza",
-        imagen:"./img/deportivo/conjunto.jpg",
-        categoria: {
-            nombre: "Deportivo",
-            id: "deportivo"
-        },
-        precio: 11000
-    },
-];
+fetch("./js/productos.json")
+    .then(response => response.json())
+    .then(data => {
+        productos = data;
+        cargarProductos(productos);
+    })
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
@@ -238,7 +33,7 @@ function cargarProductos(productosElegidos) {
         contenedorProductos.append(div);
     })
     actualizarBotonesAgregar();
-    
+
 }
 /* <div class="producto">
     <img class="producto-imagen" src="./img/urbano/bodie.jpg" alt="">
@@ -249,7 +44,7 @@ function cargarProductos(productosElegidos) {
     </div>
 </div> 
 */
-cargarProductos(productos);
+
 
 botonesCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
@@ -292,14 +87,35 @@ if (productosEnCarritoLS) {
 }
 
 function agregarAlCarrito(e) {
+
+    Toastify({
+        text: "Producto agregado al carrito",
+        duration: 3000,
+        close: true,
+        gravity: "top", 
+        position: "right", 
+        stopOnFocus: true, 
+        style: {
+            background: "linear-gradient(to right, #fc4271, rgb(255, 208, 219)",
+            borderRadius: "2rem",
+            textTransform: "uppercase",
+            fontSize: ".75rem",
+        },
+        offset: {
+            x: '1.5rem',
+            y: '1.5rem' 
+        },
+        onClick: function () { } 
+    }).showToast();
+
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
 
-    if(productosEnCarrito.some(producto => producto.id === idBoton)){
+    if (productosEnCarrito.some(producto => producto.id === idBoton)) {
         const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
         productosEnCarrito[index].cantidad++;
 
-    }else {
+    } else {
         productoAgregado.cantidad = 1;
         productosEnCarrito.push(productoAgregado);
 

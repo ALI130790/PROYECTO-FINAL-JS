@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
@@ -15,7 +16,14 @@
 
 
     <div class="wrapper">
+        <!-- Logo y boton se ven solo en version mobile -->
+        <header class="header-mobile">
+            <h1 class="logo">ALBA INDUMENTARIA</h1>
+            <button class="open-menu" id="open-menu"><i class="bi bi-list"></i></button>
+        </header>
         <aside>
+             <!-- Logo y boton se ven en version desktop -->
+            <button class="close-menu" id="close-menu"><i class="bi bi-x"></i></button>
             <header>
                 <h1 class="logo">ALBA INDUMENTARIA</h1>
             </header>
@@ -23,7 +31,7 @@
                 <ul>
                     <li>
                         <a class="boton-menu boton-volver" href="./index.html">
-                            <i class="bi bi-arrow-left-circle-fill"></i>Seguir comprando</a>
+                            <i class="bi bi-arrow-left-circle-fill"></i>Volver a la página principal</a>
                     </li>
                     <li>
                         <a class="boton-menu boton-carrito active" href="./carrito.html">
@@ -32,14 +40,14 @@
                 </ul>
             </nav>
             <footer>
-                <p class="texto-footer">© 2023 Alba Indumentaria</p>
+                <p class="texto-footer">© 2023 ALBA INDUMENTARIA</p>
             </footer>
 
         </aside>
-        <main>
-            <h2 class="titulo-principal">Mi Carrito:</h2>
+        <main> <!-- CARRITO DE COMPRAS -->
+            <h2 class="titulo-principal">Carrito:</h2>
             <div class="contenedor-carrito">
-                <p id="carrito-vacio" class="carrito-vacio">Tu carrito está vacío. <i class="bi bi-heartbreak-fill"></i>
+                <p id="carrito-vacio" class="carrito-vacio">Su carrito está vacío. <i class="bi bi-heartbreak-fill"></i>
                 </p>
 
                 <div id="carrito-productos" class="carrito-productos disabled">
@@ -60,7 +68,7 @@
                         <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Comprar</button>
                     </div>
                 </div>
-                <p id="carrito-comprado" class="carrito-comprado disabled" id="carrito-comprado" >MUCHAS GRACIAS POR TU COMPRA.<i class="bi bi-heart-fill"></i></p>
+                <p id="carrito-comprado" class="carrito-comprado disabled" id="carrito-comprado" >MUCHAS GRACIAS POR sU COMPRA.<i class="bi bi-heart-fill"></i></p>
             </div>
         </main>
     </div>
@@ -69,6 +77,9 @@
 
 
     </main>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/menu.js"></script>
     <script src="./js/carrito.js"></script>
 
 </body>

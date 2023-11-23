@@ -9,7 +9,7 @@ body {
 }
 main {
     background-color: var(--clr-white);
-    margin: 6rem;
+    margin: 4rem;
     margin-left: 0;
     border-radius: 2rem;
     padding: 2rem;
@@ -17,11 +17,12 @@ main {
 /* CARRUSEL DE FOTOS */
 :root {
     --clr-main: #fc4271;
-    --clr-white: rgb(255, 208, 219);
+    --clr-white: rgb(252, 218, 226);
     --clr-gray: #fff7f9a8;
-    --clr-footer: #55232fa8;
+    --clr-footer: #3b0b16a8;
     --clr-red: #4e0b1b;
 }
+
 .carrusel{
     display: flex;
 }
@@ -48,6 +49,7 @@ main {
 }
 
 /* ESTILOS DE HTML */
+
 h1, h2, h3, h4, h5, h6, p, a, input, textarea, ul {
     margin: 0;
     padding: 0;
@@ -92,7 +94,7 @@ aside {
     align-items: center;
     gap: 1.5rem;
     font-weight: 600;
-    padding: .60rem;
+    padding: 1rem;
     font-size: .95rem;
     width: 100%;
     cursor: pointer;
@@ -100,9 +102,8 @@ aside {
 .boton-menu.active {
     background-color: var(--clr-white);
     color: var(--clr-main);
-    width: 100%;
-    border-top-left-radius: .60rem;
-    border-bottom-left-radius: .60rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
     position: relative;
 }
 .boton-menu.active::before{
@@ -162,9 +163,10 @@ aside {
     border: 0;
     background-color: var(--clr-white);
     color: var(--clr-red);
-    padding: .30rem;
+    padding: .4rem;
     text-transform: uppercase;
-    border-radius: .5rem;
+    border-radius: 2rem;
+    gap: 1rem;
     cursor: pointer;
     border: 1px solid var(--clr-white);
     transition: background-color .2s, color .2s;
@@ -253,6 +255,12 @@ aside {
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
 }
+.header-mobile{
+    display: none;
+}
+.close-menu{
+    display: none;
+}
 .carrito-vacio{
     color: var(--clr-main);
     
@@ -263,4 +271,114 @@ aside {
 }
 .disabled{
     display: none;
+}
+
+/**MEDIA QUERIES**/
+
+@media screen and (max-width: 850px){
+    .carrusel{
+        display: none;
+    }
+    .contenedor-productos{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 675px){
+    .carrusel{
+        display: none;
+    }
+    .contenedor-productos{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .carrusel{
+        display: none;
+    }
+    .wrapper{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    aside{
+        position: fixed;
+        z-index: 9;
+        background-color: var(--clr-main);
+        left: 0;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .75);
+       transform: translateX(-100%);
+       opacity: 0;
+       visibility: hidden;
+       transition: .2s;
+    }
+    .aside-visible{
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    .contenedor-productos{
+        grid-template-columns: 1fr 1fr;
+    }
+    .boton-menu.active::before, 
+    .boton-menu.active::after{
+        display: none;
+    }
+    main{
+        margin: 1rem;
+        margin-top: 0;
+        padding: 2rem;
+    }
+    .contenedor-productos {
+        grid-template-columns: 1fr 1fr;
+    }
+    .logo{
+        gap: 2rem;
+        padding: 2rem;
+    }
+    .header-mobile{
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-mobile .logo{
+        color: var(--clr-gray);
+    }
+    .open-menu, .close-menu{
+        background-color: transparent;
+        color: var(--clr-gray);
+        border: 0;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    .close-menu{
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    .carrito-producto{
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    .carrito-producto-subtotal{
+        display: none;
+    }
+    .carrito-acciones{
+        flex-wrap: wrap;
+        row-gap: 1rem;
+    }
+}
+@media screen and (max-width: 400px){
+    .carrusel{
+        display: none;
+    }
+    .contenedor-productos{
+        grid-template-columns: 1fr;
+    }
 }
