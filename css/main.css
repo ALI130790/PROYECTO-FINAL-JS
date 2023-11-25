@@ -1,6 +1,8 @@
+/* BODY */
 body {
+   margin: 0;
     background-color: var(--clr-main);
-    margin: 1rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 * {
     margin: 0;
@@ -14,6 +16,7 @@ main {
     border-radius: 2rem;
     padding: 2rem;
 }
+
 /* CARRUSEL DE FOTOS */
 :root {
     --clr-main: #fc4271;
@@ -85,6 +88,8 @@ aside {
     flex-direction: column;
     gap: 1rem;
 }
+
+/* botones */
 .boton-menu {
     background-color: transparent;
     border: 0;
@@ -128,10 +133,12 @@ aside {
     border-top-right-radius: .5rem;
     box-shadow: 0 -1rem 0 var(--clr-white);
 }
+/* footer */
 .texto-footer {
     color: var(--clr-footer);
     font-size: 1rem;
 }
+/* contenedor */
 .titulo-principal {
     color: var(--clr-main);
     margin-bottom: 2rem;
@@ -157,7 +164,7 @@ aside {
 }
 .producto-titulo {
     font-size: 1.3rem;
-    padding: .20rem;
+    padding: .25rem;
 }
 .producto-agregar {
     border: 0;
@@ -199,6 +206,7 @@ aside {
 .carrito-producto{
     display: flex;
     justify-content: space-between;
+
     align-items: center;
     background-color: var(--clr-gray);
     color: var(--clr-main);
@@ -283,7 +291,6 @@ aside {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
-
 @media screen and (max-width: 675px){
     .carrusel{
         display: none;
@@ -292,7 +299,6 @@ aside {
         grid-template-columns: 1fr 1fr;
     }
 }
-
 @media screen and (max-width: 600px) {
     .carrusel{
         display: none;

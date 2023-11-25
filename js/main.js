@@ -1,3 +1,5 @@
+/* CARRUSEL DE FOTOS DE LA PAGINA PRINCIPAL */
+
 const carrusel = document.querySelector(".carrusel-items");
 
 let maxScrollLeft = carrusel.scrollWidth - carrusel.clientWidth;

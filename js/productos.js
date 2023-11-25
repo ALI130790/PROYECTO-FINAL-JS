@@ -1,3 +1,5 @@
+
+/* FUNCION PARA CARGAR PRODUCTOS */
 let productos = [];
 
 fetch("./js/productos.json")
@@ -27,6 +29,7 @@ function cargarProductos(productosElegidos) {
             <h3 class="producto-titulo">${producto.titulo}</h3>
             <p class="producto-precio">$${producto.precio}</p>
             <button class="producto-agregar" id="${producto.id}">Agregar</button>
+            </div>
         </div>
         `;
 
@@ -35,7 +38,8 @@ function cargarProductos(productosElegidos) {
     actualizarBotonesAgregar();
 
 }
-/* <div class="producto">
+/* 
+<div class="producto">
     <img class="producto-imagen" src="./img/urbano/bodie.jpg" alt="">
     <div class="producto-detalles">
         <h3 class="producto-titulo">Bodie Catalina</h3>
@@ -45,7 +49,7 @@ function cargarProductos(productosElegidos) {
 </div> 
 */
 
-
+/* FUNCION BOTONES CATEGORIAS */
 botonesCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
 
@@ -67,6 +71,8 @@ botonesCategorias.forEach(boton => {
 
 });
 
+
+/* FUNCION BOTON AGREGAR PRODUCTOS */
 function actualizarBotonesAgregar() {
     botonesAgregar = document.querySelectorAll(".producto-agregar");
 
@@ -86,6 +92,8 @@ if (productosEnCarritoLS) {
     productosEnCarrito = [];
 }
 
+
+/* FUNCION AGREGAR AL CARRITO */
 function agregarAlCarrito(e) {
 
     Toastify({
@@ -96,7 +104,7 @@ function agregarAlCarrito(e) {
         position: "right", 
         stopOnFocus: true, 
         style: {
-            background: "linear-gradient(to right, #fc4271, rgb(255, 208, 219)",
+            background: "linear-gradient(to right, #fc4271, #4e0b1b ",
             borderRadius: "2rem",
             textTransform: "uppercase",
             fontSize: ".75rem",
@@ -125,6 +133,7 @@ function agregarAlCarrito(e) {
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 }
 
+/* FUNCION CONTADOR DE PRODUCTOS EN CARRITO DE LA PAGINA PRINCIPAL */
 function actualizarNumerito() {
 
     let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
